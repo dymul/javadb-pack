@@ -10,10 +10,10 @@ import java.sql.SQLException;
 public class ConnectionViaDataSource {
     private static Logger logger = LoggerFactory.getLogger(ConnectionViaDataSource.class);
 
-    private static final String DB_SERVER_NAME = "";
-    private static final String DB_NAME = "";
-    private static final String DB_USER = "";
-    private static final String DB_PASSWORD = "";
+    private static final String DB_SERVER_NAME = "localhost";
+    private static final String DB_NAME = "classicmodels";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "1234qwer";
     private static final int DB_PORT = 3306;
 
     public static void main(String[] args) {
@@ -41,9 +41,8 @@ public class ConnectionViaDataSource {
         /**
          * Krok 2: Otwieramy połączenie do bazy danych
          */
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
+
+        try (Connection connection = dataSource.getConnection()) {
             logger.info("Connected database successfully...");
 
             /**
@@ -56,17 +55,6 @@ public class ConnectionViaDataSource {
              * Krok 4: Obsługa wyjątków które mogą pojawić się w trakcie pracy z bazą danych
              */
             logger.error("Error during using connection", e);
-        } finally {
-            /**
-             * Krok 5: Zawsze zamykamy połączenie po skończonej pracy!
-             */
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                logger.error("Error during closing connection", e);
-            }
         }
     }
 }

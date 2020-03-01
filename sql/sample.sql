@@ -7914,3 +7914,23 @@ insert  into `products`(`productCode`,`productName`,`productLine`,`productScale`
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+select * from customers order by customerNumber;
+select * from employees;
+select * from offices;
+select * FROM products;
+select * from orders;
+select * from productlines;
+SELECT * FROM ORDERDETAILS;
+SELECT customerName, firstName, lastName FROM customers LEFT JOIN employees on customers.salesRepEmployeeNumber = employees.employeeNumber ORDER BY customerName;
+select * from products where productName like lower("%ford%");
+
+select * from employees left join customers on customers.salesRepEmployeeNumber = employees.employeeNumber
+left join orders on customers.customerNumber = orders.customerNumber;
+select * from orders order by orderDate;
+
+select * from orders where orderDate between '2003-08-01'  and '2005-08-01';
+
+select * from products left join productlines on products.productLine = productlines.productLine where products.productLine = "Planes";
+select * from employees;
+DELETE from employees where employeeNumber = 1002;

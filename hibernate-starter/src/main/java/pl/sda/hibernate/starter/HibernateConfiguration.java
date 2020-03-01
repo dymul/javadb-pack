@@ -42,6 +42,10 @@ public class HibernateConfiguration {
             logger.info("Id: {}", id);
             logger.info("After: {}", course);
 
+            Student student = new Student("Kamil", 3, "abc", "def");
+            id = (Integer) session.save(student);
+
+
             /**
              * Krok 4: kończymy transakcję - wszystkie dane powinny być zapisane w bazie
              */

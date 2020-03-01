@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="pl.sda.hibernate.starter">
+    <!--
+        Atrybuty hibernate-mapping.'package' + class.'name' tworzą pełną nazwę klasy: pl.sda.hibernate.starter.pojo_entitiesities.Course
+        którą mapujemy do tabeli wskazanej w atrybucie 'table': courses.
+        W ten sposób instancje klasy pl.sda.hibernate.starter.pojo_entitiesities.Course będą mapowane do wierszy tabeli: courses
+    -->
+    <class name="pl.sda.hibernate.starter.Student" table="students" >
+        <!--element 'id' wskazuje w jaki sposób wiersze w tabeli mają być identyfikowane. W naszym przypadku wskazuje na PK(Primary Key).-->
+        <id name="id" column="student_id" access="field">
+            <!--
+                element 'generator' wskazuje jaka strategia ma być użyta do generowania wartości dla PK.
+                W naszym przypadku korzystamy z funkcjonalności AUTO-INCREMENT bazy MySQL.
+                Więcej: http://www.onlinetutorialspoint.com/hibernate/generator-classes-in-hibernate.html
+            -->
+            <generator class="identity"/>
+        </id>
+
+        <!--
+            element 'property' odpowiedzialny jest za mapowanie poszczególnych pól z klasy do kolumn w tabelce,
+            atrybut 'access' wskazuje w jaki sposób mają być wyciągane i dodawane dane:
+                            'field' - bezpośrednio przez pola używając mechanizmów refleksji,
+                            'property' - przez gettery/settery - o ile istnieją w kodzie
+        -->
+        <property name="name" type="string" access="field" column="course_name"/>
+        <!-- jeżeli nie podamy nazwy kolumny będzie taka sama jak nazwa pola -->
+        <property name="courseId" access="field" />
+        <property name="description" type="string" access="field" column="description"/>
+        <!-- jeżeli nie podamy typu Hibernate spróbuje sam wyliczyć typ danego pola - w tym przypadku będzie to DATETIME! -->
+        <property name="seat" type="string" access="field" column="seat"/>
+    </class>
+</hibernate-mapping>

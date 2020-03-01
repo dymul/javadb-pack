@@ -14,8 +14,8 @@ public class JpaBasic {
              */
             entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter");
             /**
-              * tworzymy nową instancję EntityManager
-              */
+             * tworzymy nową instancję EntityManager
+             */
             entityManager = entityManagerFactory.createEntityManager();
 
             /**
@@ -30,16 +30,33 @@ public class JpaBasic {
             /**
              * Zapisujemy encję w bazie danych
              */
-            CoachEntity coachEntity = new CoachEntity("Vlad Mihalcea");
-            entityManager.remove(coachEntity);
+//            CoachEntity coachEntity = new CoachEntity("Vlad Mihalcea");
+//            CoachEntity coachEntity1 = new CoachEntity("Jakub Domagała");
+//            CoachEntity coachEntity2 = new CoachEntity("Tomasz Mak");
+//            entityManager.persist(coachEntity);
+//            entityManager.persist(coachEntity1);
+//            entityManager.persist(coachEntity2);
+//
+//
+//            entityManager.remove(coachEntity);
+
+
+            StudentEntity student1 = new StudentEntity("Jakub", 3);
+            StudentEntity student2 = new StudentEntity("Jacek", 5);
+
+            entityManager.persist(student1);
+            entityManager.persist(student2);
 
             /**
              * Wyciągamy wszystkie encje zapisane w bazie danych
              */
-            TypedQuery<CoachEntity> query = entityManager.createQuery("from CoachEntity", CoachEntity.class);
-            List<CoachEntity> coaches = query.getResultList();
-            System.out.println("coaches = " + coaches);
+//            TypedQuery<CoachEntity> query = entityManager.createQuery("from CoachEntity", CoachEntity.class);
+//            List<CoachEntity> coaches = query.getResultList();
+//            System.out.println("coaches = " + coaches);
 
+            TypedQuery<StudentEntity> query = entityManager.createQuery("from StudentEntity", StudentEntity.class);
+            List<StudentEntity> school = query.getResultList();
+            System.out.println("school = " + school);
             /**
              * Kończymy (commitujemy) transakcję - wszystkie dane powinny być zapisane w bazie
              */

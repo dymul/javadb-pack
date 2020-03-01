@@ -10,7 +10,7 @@
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/hibernate_test?useSSL=false&amp;serverTimezone=Europe/Warsaw</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
+        <property name="connection.password">1234qwer</property>
 
         <!-- pula połączeń JDBC(dostarczana przez Hibernate - nie stosować w środowisku produkcyjnym!) -->
         <property name="connection.pool_size">1</property>
@@ -27,5 +27,6 @@
 
         <!-- lista plików ze szczegółami mapowania klas do bazy danych -->
         <mapping resource="Course.hbm.xml"/>
+        <mapping resource="Student.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

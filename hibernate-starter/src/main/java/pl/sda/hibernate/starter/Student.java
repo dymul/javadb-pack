@@ -3,9 +3,12 @@ package pl.sda.hibernate.starter;
 public class Student {
     private Integer id;
     private String name;
+
     private Integer courseId;
     private String description;
     private String seat;
+
+    protected Student(){};
 
     public Student(String name, Integer courseId, String description, String seat) {
         this.name = name;
