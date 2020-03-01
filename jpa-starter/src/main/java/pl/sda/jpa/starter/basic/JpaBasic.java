@@ -14,8 +14,8 @@ public class JpaBasic {
              */
             entityManagerFactory = Persistence.createEntityManagerFactory("pl.sda.jpa.starter");
             /**
-              * tworzymy nową instancję EntityManager
-              */
+             * tworzymy nową instancję EntityManager
+             */
             entityManager = entityManagerFactory.createEntityManager();
 
             /**
@@ -30,15 +30,35 @@ public class JpaBasic {
             /**
              * Zapisujemy encję w bazie danych
              */
-            CoachEntity coachEntity = new CoachEntity("Vlad Mihalcea");
-            entityManager.remove(coachEntity);
+//            CoachEntity coachEntity = new CoachEntity("Vlad Mihalcea");
+//            CoachEntity coachEntity2 = new CoachEntity("Jan Kowalski");
+//            CoachEntity coachEntity3 = new CoachEntity("Anna Krawczyk");
+//            CoachEntity coachEntity4 = new CoachEntity("Roman Polanski");
+//            entityManager.remove(coachEntity);
+//            entityManager.persist(coachEntity2);
+//            entityManager.persist(coachEntity3);
+//            CoachEntity coachEntity1 = entityManager.find(CoachEntity.class, 4);
+//            entityManager.remove(coachEntity1);
+            StudentEntity studentEntity = new StudentEntity("Jan Kowalski", "2005");
+            StudentEntity studentEntity2 = new StudentEntity("Maria Krawczy", "2002");
+            StudentEntity studentEntity3 = new StudentEntity("Stefan Polanski", "2011");
+
+            entityManager.persist(studentEntity);
+            entityManager.persist(studentEntity2);
+            entityManager.persist(studentEntity3);
+
+
 
             /**
              * Wyciągamy wszystkie encje zapisane w bazie danych
              */
-            TypedQuery<CoachEntity> query = entityManager.createQuery("from CoachEntity", CoachEntity.class);
-            List<CoachEntity> coaches = query.getResultList();
-            System.out.println("coaches = " + coaches);
+//            TypedQuery<CoachEntity> query = entityManager.createQuery("from CoachEntity", CoachEntity.class);
+//            List<CoachEntity> coaches = query.getResultList();
+//            System.out.println("coaches = " + coaches);
+
+            TypedQuery<StudentEntity> query = entityManager.createQuery("from StudentEntity", StudentEntity.class);
+            List<StudentEntity> students = query.getResultList();
+            System.out.println("coaches = " + students);
 
             /**
              * Kończymy (commitujemy) transakcję - wszystkie dane powinny być zapisane w bazie
