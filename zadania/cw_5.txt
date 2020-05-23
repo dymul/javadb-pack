@@ -22,7 +22,7 @@
 
 
 1.  Stwórz nową lokalną bazę danych w MySQL. Nazwij ją: ​ jpa_test​ . Stwórz w niej
-    tabelę o nazwie: ​ coaches ​ z kolumnami: id, name
+    tabelę o nazwie: ​ coaches ​ z kolumnami: id typu int oraz name typu varchar
 
 2.  Przejdź do modułu ​ jpa-starter i zmień konfigurację bazy danych w pliku
     resources/META-INF/persistence.xml

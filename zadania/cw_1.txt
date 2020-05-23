@@ -18,10 +18,10 @@
     ConnectionFactory. Klasa ta ma stać się naszą fabryką do tworzenia połączeń do
     wybranej przez nas bazy danych. Wewnątrz klasy ​ ConnectionFactory ​ należy
     stworzyć obiekt DataSource (pamiętaj: tworzymy raz, wykorzystujemy wielokrotnie) i
-    następnie użyć go w metodzie ​ getConnection.
+    następnie użyć go w metodzie ​ getConnection().
 
 4.  Przenieś parametry bazy danych do zewnętrznego pliku:
-        - Przeanalizuj plik ​ database.properties ​ w katalogu ​ resources
+        - Przeanalizuj plik ​database.properties ​w katalogu ​resources
         - Zmień wartości (po prawej stronie znaku ‘=’) na parametry twojej lokalnej bazy
         - Utwórz konstruktory:
             ConnectionFactory(String filename)

@@ -10,7 +10,5 @@
 2.  W folderze sql znajduje się plik sample.sql zawierający skrypt tworzący bazę danych,
     uruchom go i po wykonaniu zapoznaj się ze stworzonym schematem.
 
-3.  Przenanaizuj strukturę bieżącego projektu, upewnij się, że wersja javy w projekcie to 1.8.
-
-4.  Uruchom kompilację całego projektu za pomocą mavena, w przypadku błędu budowania
+3.  Uruchom kompilację całego projektu za pomocą mavena, w przypadku błędu budowania
     poproś o pomoc prowadzącego.

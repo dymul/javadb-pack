@@ -30,8 +30,8 @@ public class JpaBasic {
             /**
              * Zapisujemy encję w bazie danych
              */
-            CoachEntity coachEntity = new CoachEntity("Vlad Mihalcea");
-            entityManager.remove(coachEntity);
+            CoachEntity coachEntity = new CoachEntity("Jan Kowalski");
+            entityManager.persist(coachEntity);
 
             /**
              * Wyciągamy wszystkie encje zapisane w bazie danych
