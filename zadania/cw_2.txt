@@ -40,7 +40,7 @@
 1.  Otwórz klasę ​ ClassicModelsManager. Korzystając z dotychczas napisanych klas wypełnij ciała metod:
 
         - printAllOffices() - wypisuje na ekranie wszystkie informacje na temat wszystkich biur
-        - updateProductPrices(double updateRate) - podnosi cenę wszystkich produktów o 10%
+        - updateProductPrices() - podnosi cenę wszystkich produktów o 10%
         - printAllCustomersWithSalesRepName() - wypisuje nazwy wszstkich klientów wraz z imieniem i nazwiskiem
             przedstawiciela handlowego
 

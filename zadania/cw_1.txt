@@ -27,7 +27,7 @@
             ConnectionFactory(String filename)
             ConnectionFactory()
         - D​rugi konstruktor ma wywołać pierwszy konstruktor z argumentem
-            filename=”​database.properties​”
+            filename=”​/database.properties​”
         - Pobierz parametry bazy danych z pliku za pomocą metody
             getDataBaseProperties(String fileName)
         - Użyj parametrów bazy danych pobranych z pliku przy pomocy metody:

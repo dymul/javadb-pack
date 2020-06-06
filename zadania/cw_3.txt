@@ -32,9 +32,9 @@
 2.  Otwórz klasę ​ ClassicModelsManager. Dodaj następujące metody:
 
         - public List<Product> findProductByName(String nameMatcher);
-            - zwraca listę produktów zawierających w nazwie teks podany jako parametr nameMatcher
+            - zwraca listę produktów zawierających w nazwie tekst podany jako parametr nameMatcher
 
-        - public List<Order> findOrdersByEmloyeeId(int id);
+        - public List<Order> findOrdersByEmployeeId(int id);
             - zwraca listę zamówień złożonych przez klientów obsługiwanych przez pracownika o podanym id
 
         - public List<Order> findOrdersByDate(Date from, Date to);
