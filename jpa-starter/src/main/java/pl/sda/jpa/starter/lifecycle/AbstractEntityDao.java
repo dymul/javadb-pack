@@ -5,25 +5,28 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import java.util.List;
 
-public class CourseEntityDao {
-    private static Logger logger = LoggerFactory.getLogger(CourseEntityDao.class);
+public class AbstractEntityDao<T> {
+
+    private static Logger logger = LoggerFactory.getLogger(AbstractEntityDao.class);
 
     private final EntityManagerFactory entityManagerFactory;
 
-    public CourseEntityDao(EntityManagerFactory entityManagerFactory) {
+    private final Class<T> clazz;
+
+    public AbstractEntityDao(EntityManagerFactory entityManagerFactory, Class<T> clazz) {
         this.entityManagerFactory = entityManagerFactory;
+        this.clazz = clazz;
     }
     // try catch !!!
-    public void save(CourseEntity courseEntity) {
+    public void save(T entity) {
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            entityManager.persist(courseEntity);
+            entityManager.persist(entity);
 
             entityManager.getTransaction().commit();
         } finally {
@@ -33,13 +36,13 @@ public class CourseEntityDao {
         }
     }
 
-    public void update(CourseEntity courseEntity) {
+    public void update(T entity) {
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            CourseEntity managed = entityManager.merge(courseEntity);
+            T managed = entityManager.merge(entity);
 
             entityManager.getTransaction().commit();
         } finally {
@@ -49,13 +52,13 @@ public class CourseEntityDao {
         }
     }
 
-    public void delete(CourseEntity courseEntity) {
+    public void delete(T entity) {
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            CourseEntity managed = entityManager.merge(courseEntity);
+            T managed = entityManager.merge(entity);
             entityManager.remove(managed);
 
             entityManager.getTransaction().commit();
@@ -66,16 +69,16 @@ public class CourseEntityDao {
         }
     }
 
-    public CourseEntity findById(int id) {
+    public T findById(Object id) {
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            CourseEntity courseEntity = entityManager.find(CourseEntity.class, id);
+            T entity = entityManager.find(clazz, id);
 
             entityManager.getTransaction().commit();
-            return courseEntity;
+            return entity;
         } finally {
             if (entityManager != null) {
                 entityManager.close();
@@ -83,13 +86,13 @@ public class CourseEntityDao {
         }
     }
 
-    public List<CourseEntity> list() {
+    public List<T> list() {
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
 
-            List<CourseEntity> courses = entityManager.createQuery("from CourseEntity", CourseEntity.class).getResultList();
+            List<T> courses = entityManager.createQuery("from " + clazz.getSimpleName(), clazz).getResultList();
 
             entityManager.getTransaction().commit();
             return courses;

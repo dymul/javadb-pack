@@ -66,7 +66,7 @@
     obiektów ​EntityManager ​w metodach.
 
 5.  Otwórz klasę CourseEntityDao ​i uzupełnij metody kodem z JPA. Sprawdź czy
-    działają testując je w klasie EntityManager, np.:
+    działają testując je w klasie JpaManager, np.:
         - dodaj kilka encji CourseEntity do bazy
         - pobierz encję CourseEntity o podanym id z bazy i usuń ją
         - pobierz wszystkie encje, usuń ostatnią z listy.
