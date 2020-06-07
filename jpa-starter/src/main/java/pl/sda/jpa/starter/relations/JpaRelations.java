@@ -28,6 +28,7 @@ public class JpaRelations {
             AddressEntity address = new AddressEntity("Gdańsk", "Malwinowa 1/3");
             StudentEntity student = new StudentEntity("Jan Kowalski");
             student.setAddress(address);
+            //address.setStudent(student);
 
             entityManager.persist(student);
 

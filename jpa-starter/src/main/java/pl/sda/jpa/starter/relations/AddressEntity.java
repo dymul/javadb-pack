@@ -9,8 +9,11 @@ public class AddressEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String city;
+
     private String street;
-    @OneToOne(mappedBy = "address")
+
+    @OneToOne
+    @JoinColumn(name="student_id")
     private StudentEntity student;
 
     protected AddressEntity() {}

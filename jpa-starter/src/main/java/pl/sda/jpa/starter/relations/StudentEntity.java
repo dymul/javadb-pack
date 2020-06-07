@@ -13,8 +13,7 @@ public class StudentEntity {
     private String name;
     private String seat;
 
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "add_id")
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private AddressEntity address;
 
     /**
